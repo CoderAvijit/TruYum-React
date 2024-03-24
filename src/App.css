@@ -1,0 +1,200 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background: hsla(104, 13%, 84%, 0.5);
+}
+.login-container,.items-menu,.view-cart {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: #f0f0f0;
+  height: fit-content;
+  width: fit-content;
+  padding: 20px;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  text-align: center;
+  position: absolute;
+  margin: auto; /* Add this line to horizontally center the form */
+  top: 25%; /* Add this line to vertically center the form */
+  bottom: 25%; /* Add this line to vertically center the form */
+  left: 0; /* Add this line to horizontally center the form */
+  right: 0; /* Add this line to horizontally center the form */
+}
+
+.formDesign,.admin-menu {
+  background: hsla(106, 31%, 43%, 0.5);
+  height: fit-content;
+  width: fit-content;
+  padding: 20px;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  text-align: center;
+  margin: auto; /* Add this line to horizontally center the form */
+  top: 45%; /* Add this line to vertically center the form */
+  bottom: 25%; /* Add this line to vertically center the form */
+  left: 0; /* Add this line to horizontally center the form */
+  right: 0; /* Add this line to horizontally center the form */
+}
+
+h2 {
+  color: #333;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-text {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+p.error-message {
+  color: red;
+  font-size: 15px;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: cadetblue;
+}
+button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+/* @import url('https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css'); */
+.App {
+  text-align: center;
+}
+
+body {
+  background-color: rgb(178, 195, 178);
+}
+
+p {
+  font-family: Georgia, serif;
+}
+.register-page {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+}
+
+
+
+
+.input-text {
+  width: 90%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.submitData {
+  width: 90%;
+  background-color: #4caf50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.designSelect {
+  min-width: 250px;
+}
+
+select {
+  font-size: 1.15rem;
+  padding: 0.675em 6em 0.675em 1em;
+  background-color: #fff;
+  border: 1px solid #caced1;
+  border-radius: 0.25rem;
+  color: #000;
+  cursor: pointer;
+}
+
+textarea {
+  width: 90%;
+  height: 120px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+}
+
+.checkBox {
+  width: 45px;
+  height: 15px;
+}
+.navbar {
+  margin-bottom: 20px;
+  background-color: #333;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+}
+.footer {
+  position:fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(42, 38, 41);
+  color: white;
+  text-align: center;
+}
+.nav-link {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  margin: 0 10px;
+}
+
+.nav-link:hover {
+  background-color: #04aa6d;
+  color: black;
+}
+
+.edit-item{
+  margin-left: 40%;
+  width: 30%;
+  height: fit-content;
+  border: 2px solid black;
+}
+
+.input-text1 {
+  border: 1px solid black;
+  width: fit-content;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border-radius: 10px;
+  box-sizing: border-box;
+  position: relative; /* Add position relative for pseudo-element positioning */
+}
+
