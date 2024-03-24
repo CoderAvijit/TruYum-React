@@ -18,7 +18,7 @@ export default function ViewCart() {
 
   const remove = (name) => {
     fetch(
-      `https://java-backend-production-f1a3.up.railway.app/customercontroller/removefromcart?name=${name}&email=${id}`,
+      `https://java-backend-production-4cd7.up.railway.app/customercontroller/removefromcart?name=${name}&email=${id}`,
       {
         method: "DELETE",
         headers: {
@@ -37,7 +37,7 @@ export default function ViewCart() {
   };
 
   useEffect(() => {
-    fetch(`https://java-backend-production-f1a3.up.railway.app/customercontroller/viewcart?email=${id}`)
+    fetch(`https://java-backend-production-4cd7.up.railway.app/customercontroller/viewcart?email=${id}`)
       .then((response) => {
         return response.json();
       })

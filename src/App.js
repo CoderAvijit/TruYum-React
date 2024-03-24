@@ -21,7 +21,7 @@ function App() {
   // const navigate = useNavigate("");
   const addtocart = (name) => {
     console.log("email id is : ",id);
-    fetch(`https://java-backend-production-f1a3.up.railway.app/customercontroller/addtocart?name=${name}&email=${id}`, {
+    fetch(`https://java-backend-production-4cd7.up.railway.app/customercontroller/addtocart?name=${name}&email=${id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

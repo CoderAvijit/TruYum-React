@@ -76,7 +76,7 @@ const SignUp = () => {
       address,
     };
     console.log("Users :",newUser);
-    const regUrl = `https://java-backend-production-f1a3.up.railway.app/registration/regcontroller?name=${name}&email=${email}&location=${address}&phone=${phone}&password=${password}`;
+    const regUrl = `https://java-backend-production-4cd7.up.railway.app/registration/regcontroller?name=${name}&email=${email}&location=${address}&phone=${phone}&password=${password}`;
 
     fetch(regUrl, {
         method: "POST",

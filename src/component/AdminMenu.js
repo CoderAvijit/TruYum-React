@@ -15,7 +15,7 @@ export default function AdminMenu() {
   const [dateOfLaunch, setDateOfLaunch] = useState(""); // Added state for the name input field
 
   useEffect(() => {
-    fetch(`https://java-backend-production-f1a3.up.railway.app/admin/getallitems`)
+    fetch(`https://java-backend-production-4cd7.up.railway.app/admin/getallitems`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data.message);
@@ -54,7 +54,7 @@ export default function AdminMenu() {
     // Update the state with the modified items
     setItems(updatedItems);
 
-    const regUrl = `https://java-backend-production-f1a3.up.railway.app/admin/updateItem?id=${id}&name=${name}&price=${price}&availability=${availability}&freeDelivery=${freeDelivery}&dateOfLaunch=${dateOfLaunch}`;
+    const regUrl = `https://java-backend-production-4cd7.up.railway.app/admin/updateItem?id=${id}&name=${name}&price=${price}&availability=${availability}&freeDelivery=${freeDelivery}&dateOfLaunch=${dateOfLaunch}`;
 
     fetch(regUrl, {
       method: "PUT",

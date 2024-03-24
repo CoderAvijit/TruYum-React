@@ -7,7 +7,7 @@ export default function UserMenu({ addtocart }) {
  const [items,setItems] = useState([]);
 //  const [cartItems,setCartItems] = useState([]);
 useEffect(() => {
-    fetch(`https://java-backend-production-f1a3.up.railway.app/customercontroller/showitems`)
+    fetch(`https://java-backend-production-4cd7.up.railway.app/customercontroller/showitems`)
       .then((response) => response.json())
       .then((data) => {
         setItems(data.message);
@@ -18,7 +18,7 @@ useEffect(() => {
   }, []);
 
   // const addtocart=(name)=>{
-  //   fetch(`https://java-backend-production-f1a3.up.railway.app/customercontroller/addtocart?name=${name}`,{
+  //   fetch(`https://java-backend-production-4cd7.up.railway.app/customercontroller/addtocart?name=${name}`,{
   //     method: "POST",
   //     headers: {
   //         "Content-Type": "application/json"
