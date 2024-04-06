@@ -42,7 +42,7 @@ useEffect(() => {
 
   return (
     <div className="items-menu">
-      <h1>items Menu</h1>
+      <h1>Items Menu</h1>
       {/* <button onClick={getData}>Get Data</button> */}
       <table border={1}>
         <tr>

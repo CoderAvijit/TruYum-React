@@ -76,13 +76,21 @@ const SignUp = () => {
       address,
     };
     console.log("Users :",newUser);
-    const regUrl = `https://java-backend-production-4cd7.up.railway.app/registration/regcontroller?name=${name}&email=${email}&location=${address}&phone=${phone}&password=${password}`;
+    const regUrl = `https://java-backend-production-4cd7.up.railway.app/registration/regcontroller`;
+    const userParam = {
+      "name" : name,
+      "email" :email,
+      "location" : address,
+      "phone" : phone,
+      "password":password
+    }
 
     fetch(regUrl, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
-        }
+        },
+        body:JSON.stringify(userParam),
     })
     .then(response => {
         if(response.ok){
@@ -131,6 +139,7 @@ const SignUp = () => {
         }
         onSubmit={submitData}
       >
+        <h2>Register Here</h2>
         <input
           type="text"
           className="input-text"

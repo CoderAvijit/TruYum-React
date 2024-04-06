@@ -1,49 +1,56 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { EmailContext } from "../context/EmailContext";
+
 function SignIn() {
-  // const [id, setId] = useState("");
-  const {id,setId} = useContext(EmailContext);
+  const { id, setId } = useContext(EmailContext);
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("Customer"); // Set an initial role
+  const [role, setRole] = useState("Customer");
   const [passwordErr, setPasswordErr] = useState(false);
   const [idErr, setIdErr] = useState(false);
-  const navigate=useNavigate('');
-  const [check,SetCheck] = useState(false);
+  const navigate = useNavigate('');
+  const [check, setCheck] = useState(false);
+  const [loggedInAs, setLoggedInAs] = useState("");
+
   const handleLogin = () => {
-    const loginURL = `https://java-backend-production-4cd7.up.railway.app/login/logincontroller?role=${role}&email=${id}&password=${password}`;
+    const loginURL = `https://java-backend-production-4cd7.up.railway.app/login/logincontroller`;
+    const loginResponse = JSON.stringify({
+      role: role,
+      email: id,
+      password: password
+    });
 
     fetch(loginURL, {
-      method: "POST", // Adjust the method as needed (e.g., POST or GET)
+      method: "POST",
       headers: {
-        "Content-Type": "text/json", // Set the appropriate content type
+        "Content-Type": "application/json",
       },
-      // You can add additional options like headers and request body data if needed
+      body: loginResponse,
     })
       .then((response) => {
-        if (response.ok) {
-          // Handle a successful login response
-          // You might want to redirect the Customer or perform other actions
-          return response.json(); // Parse the response body as JSON
-        } 
-        
+        if (!response.ok) {
+          throw new Error('Network response was not ok.');
+        }
+        return response.json();
       })
       .then((data) => {
-        // Handle the JSON response data (if any)
         if (data.message === "user") {
           console.log("Logged in as", data.message);
+          setLoggedInAs("Logged in as Customer");
           navigate('/user-menu');
-        }else if(data.message==='admin'){
-          console.log("logged in as ",data.message);
+        } else if (data.message === 'admin') {
+          console.log("Logged in as", data.message);
+          setLoggedInAs("Logged in as Admin");
           navigate('/admin-menu');
+        } else {
+          console.log("Unexpected response:", data.message);
+          // Handle unexpected response here
         }
-        
-        // You can perform actions like redirecting the user here
       })
       .catch((error) => {
-        // Handle network errors or fetch request issues
-        SetCheck(true);
-        console.error("resgister your self:",error);
+        console.error("Error during login:", error);
+        setCheck(true);
+        // Handle errors here
       });
   };
 
@@ -69,21 +76,23 @@ function SignIn() {
 
   const handleIdChange = (e) => {
     setIdErr(false);
-    setId(e.target.value); // Update the 'id' state
+    setId(e.target.value);
   };
 
   const handlePasswordChange = (e) => {
     setPasswordErr(false);
-    setPassword(e.target.value); // Update the 'password' state
+    setPassword(e.target.value);
   };
 
-  const register = ()=>{
+  const register = () => {
     navigate('/sign-up');
-  }
+  };
+
   return (
     <div className="login-container">
       <h2>Login Form</h2>
-      <form onSubmit={handleSubmit}>
+      <div className="login-as">
+        <h3>Log in As:</h3>
         <div className="radio-group">
           <label>
             <input
@@ -106,6 +115,9 @@ function SignIn() {
             Admin
           </label>
         </div>
+      </div>
+      {loggedInAs && <p className="login-message">{loggedInAs}</p>}
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           className="input-text"
@@ -126,13 +138,12 @@ function SignIn() {
         {passwordErr && (
           <p className="error-message">This field is required**</p>
         )}
-        {check&&<p style={{color:'red'}}>Invalid user id or password</p>}
-        <button type="submit">Login</button>
-        <p>Don't have an account? Register here</p>
-        <button onClick={register}>Register</button>
+        {check && <p style={{ color: 'red' }}>Invalid user id or password</p>}
+        <button type="submit" className="submit-button">Login</button>
+        <p className="register-link">Don't have an account? <a href="#" onClick={register}>Register here</a></p>
       </form>
     </div>
-  );
+  );  
 }
 
 export default SignIn;

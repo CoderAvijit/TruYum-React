@@ -10,7 +10,7 @@ export default function ViewCart() {
   // Calculate total price
   const calculateTotalPrice = () => {
     let total = 0;
-    if (cartItems&&cartItems.length > 0) {
+    if (cartItems && cartItems.length > 0) {
       total = cartItems.reduce((acc, item) => acc + item.price, 0);
     }
     return total;
@@ -36,6 +36,14 @@ export default function ViewCart() {
       .catch((error) => {});
   };
 
+  const placeOrder=()=>{
+    alert("Your Order has been placed");
+    setCartItems([]);
+  }
+  const handleLogout=()=>{
+    navigate("/login")
+  }
+
   useEffect(() => {
     fetch(`https://java-backend-production-4cd7.up.railway.app/customercontroller/viewcart?email=${id}`)
       .then((response) => {
@@ -54,7 +62,7 @@ export default function ViewCart() {
       <h1>Cart</h1>
       <p>
         <strong>Logged in as:</strong> <u>{id}</u>&nbsp;&nbsp;&nbsp;&nbsp;
-        <button onClick={() => navigate("/Login")}>Log Out</button>
+        <button onClick={() => handleLogout()}>Log Out</button>
       </p>
       <table border={1}>
         <tbody>
@@ -83,6 +91,9 @@ export default function ViewCart() {
         <tfoot>
           <tr>
             <td colSpan={5}>Total Price: {totalPrice}</td>
+            <td style={{ textAlign: "right" }}>
+              <button className="place-order" onClick={()=>placeOrder()}>Place Order</button>
+            </td>
           </tr>
         </tfoot>
       </table>
